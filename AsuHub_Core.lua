@@ -64,13 +64,13 @@ local function TrackCoroutine(c) table.insert(SessionConnections, c); return c e
 -- ===================================================================
 
 local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local Workspace = game:GetService("Workspace")
 local ContextActionService = game:GetService("ContextActionService")
 local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local player = Players.LocalPlayer
 
 local mouse = player:GetMouse()
 
