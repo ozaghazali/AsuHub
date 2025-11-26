@@ -74,17 +74,27 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local mouse = player:GetMouse()
 
+-- Wait for LocalPlayer to be fully loaded if not ready
+if not player then
+    player = game.Players.LocalPlayer or game.Players.PlayerAdded:Wait()
+end
+
+-- Wait for Character if nil
+local character = player.Character
+if not character then
+    character = player.CharacterAdded:Wait()
+end
+
+-- Now proceed with humanoid check
+local humanoid = character:WaitForChild("Humanoid")
+local isR15 = humanoid and humanoid.RigType == Enum.HumanoidRigType.R15
+
 -- Teleport Function
 local function teleportCharacter(character, position)
     if character and character:FindFirstChild("HumanoidRootPart") then
         character.HumanoidRootPart.CFrame = CFrame.new(position)
     end
 end
-
--- Check R15
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local isR15 = humanoid and humanoid.RigType == Enum.HumanoidRigType.R15
 
 -- ===================================================================
 -- [[ FREECAM MODULE ]]
