@@ -70,11 +70,11 @@ local Workspace = game:GetService("Workspace")
 local ContextActionService = game:GetService("ContextActionService")
 local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
 
 local mouse = player:GetMouse()
 
 -- Wait for LocalPlayer to be fully loaded if not ready
-local player = Players.LocalPlayer
 if not player then
     player = game.Players.LocalPlayer or game.Players.PlayerAdded:Wait()
 end
