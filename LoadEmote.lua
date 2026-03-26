@@ -1,4 +1,3 @@
-        -- Skrip dari Emotes.txt (Sumber 1) dimasukkan ke dalam string
         local emoteScriptString = [[
             if _G.EmotesGUIRunning then
                 getgenv().Notify({
@@ -1257,7 +1256,7 @@
                 totalEmotesLoaded = 0
             
                 local success, result = pcall(function()
-                    local jsonContent = game:HttpGet("https://raw.githubusercontent.com/ozaghazali/AsuHub/refs/heads/main/EmoteSniper.json")
+                    local jsonContent = game:HttpGet("https://raw.githubusercontent.com/7yd7/sniper-Emote/refs/heads/test/EmoteSniper.json")
                     
                     if jsonContent and jsonContent ~= "" then
                         local data = HttpService:JSONDecode(jsonContent)
