@@ -82,10 +82,10 @@ local settingsTable = {
 		-- buildwarnings
 		-- rayfieldprompts
 
+	},
+	System = {
+		usageAnalytics = {Type = 'toggle', Value = true, Name = 'Anonymised Analytics'},
 	}
-	-- System = {
-	--	usageAnalytics = {Type = 'toggle', Value = true, Name = 'Anonymised Analytics'},
-	-- }
 }
 
 -- Settings that have been overridden by the developer. These will not be saved to the user's configuration file
@@ -135,7 +135,7 @@ local function callSafely(func, ...)
 	if func then
 		local success, result = pcall(func, ...)
 		if not success then
-			warn("AsuHub | Function failed with error: ", result)
+			warn("Rayfield | Function failed with error: ", result)
 			return false
 		else
 			return result
@@ -200,7 +200,7 @@ local function loadSettings()
 			else
 				for settingName, settingValue in overriddenSettings do
 					local split = string.split(settingName, ".")
-					assert(#split == 2, "AsuHub | Invalid overridden setting name: " .. settingName)
+					assert(#split == 2, "Rayfield | Invalid overridden setting name: " .. settingName)
 					local categoryName = split[1]
 					local settingNameOnly = split[2]
 					if settingsTable[categoryName] and settingsTable[categoryName][settingNameOnly] then
@@ -214,7 +214,7 @@ local function loadSettings()
 
 	if not success then 
 		if writefile then
-			warn('AsuHub had an issue accessing configuration saving capability.')
+			warn('Rayfield had an issue accessing configuration saving capability.')
 		end
 	end
 end
@@ -267,9 +267,9 @@ if not requestsDisabled then
 		end
 	end
 	if cachedSettings and (#cachedSettings == 0 or (cachedSettings.System and cachedSettings.System.usageAnalytics and cachedSettings.System.usageAnalytics.Value)) then
-		sendReport("execution", "AsuHub")
+		sendReport("execution", "Rayfield")
 	elseif not cachedSettings then
-		sendReport("execution", "AsuHub")
+		sendReport("execution", "Rayfield")
 	end
 end
 
