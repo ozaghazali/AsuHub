@@ -126,10 +126,10 @@ local settingsTable = {
 		-- buildwarnings
 		-- rayfieldprompts
 
+	},
+	System = {
+		usageAnalytics = {Type = 'toggle', Value = true, Name = 'Anonymised Analytics'},
 	}
-	-- System = {
-	-- 	usageAnalytics = {Type = 'toggle', Value = true, Name = 'Anonymised Analytics'},
-	-- }
 }
 
 -- Settings that have been overridden by the developer. These will not be saved to the user's configuration file
